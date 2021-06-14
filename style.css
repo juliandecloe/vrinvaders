@@ -100,8 +100,8 @@ body {
 	width: 5px;
 	top: 80%;
 	left: -100px;
-	transition: 1s linear;
-	transform: translateY(-2500%);
+	transition: 2s linear;
+	transform: translateY(-5000%);
 }
 
 .comet {
