@@ -49,7 +49,7 @@ Alles verliep soepel, maar 'localStorage' bleef maar niet werken. Het lukte maar
 
 ### Coin
 
-De coin verliep het soepelste van allemaal. Dit was dan ook de simpelste functie naast het verstoppen van de muis. Ik had een plan om css te triggeren om een kleine animatie te starten als je een coin collect. Dat werkte zoals gehoopt. Voor de rest was het vrij herhalend met intervallen en het veranderen van de top en left.
+De coin verliep het soepelste van allemaal. Dit was dan ook de simpelste functie naar het verstoppen van de muis. Ik had een plan om css te triggeren om een kleine animatie te starten als je een coin collect. Dat werkte zoals gehoopt. Voor de rest was het vrij herhalend met intervallen en het veranderen van de top en left.
 
 ![](img/read-coin.png)
 

@@ -253,6 +253,7 @@ function death() {
 		cometImg.classList.remove('hide');
 		coinTop = -200;
 		coinImg.style.top = coinTop + 'px';
+		bulletCheck = setInterval(bulletInterval, 1);
 	}, 2000)
 }
 
@@ -324,8 +325,9 @@ document.addEventListener('keyup', endmovingRocket);
 var shootRepeat, endBullet, bulletTop, bulletImg;
 var bulletImg = document.querySelectorAll('.bullet');
 var cometDeath = false;
-var bulletSound = new Audio('assets/laser.mp3');
-var bulletCheck = setInterval(function() {
+var bulletCheck = setInterval(bulletInterval, 1);
+
+function bulletInterval() {
 	if(bulletImg.length >= 1) {
 		checkBullet(0);
 	}
@@ -355,8 +357,8 @@ var bulletCheck = setInterval(function() {
 	}	
 	if(bulletImg.length >= 10) {
 		checkBullet(9);
-	}	
-}, 1)
+	}
+}
 
 function startShooting(event) {
 	if(!deathChecker) {
@@ -374,12 +376,9 @@ function shootBullet() {
 	newBullet.src = 'img/bullet.png';
 	document.body.appendChild(newBullet);
 	newBullet.style.left = rocketImg.offsetLeft + 48 + 'px'; 
-	newBullet.classList.add('bullet');
-	bulletSound.play(); 
+	newBullet.classList.add('bullet'); 
 	bulletImg = document.querySelectorAll('.bullet');		
 	shootRepeat = setTimeout(function() {
-		bulletSound.pause();
-		bulletSound.currentTime = 0;
 		shootBullet();
 	}, 250);
 }
@@ -390,8 +389,9 @@ function checkBullet(el) {
 		bulletImg[el].parentNode.removeChild(bulletImg[el]);
 	}
 	if(cometImg.classList.contains('cometflip')) {
-		if((rect.top <= cometImg.offsetTop + 280 && rect.top + 30 > cometImg.offsetTop + 220) && (rect.left > cometImg.offsetLeft && rect.left < cometImg.offsetLeft + 80)) {
+		if((rect.top <= cometImg.offsetTop + 300 && rect.top + 30 > cometImg.offsetTop + 220) && (rect.left > cometImg.offsetLeft && rect.left < cometImg.offsetLeft + 80)) {
 			if(!cometDeath) {
+				console.log('target dies')
 				clearInterval(cometMovement)
 				cometImg.src = 'img/explosion.gif';
 				cometDeath = true;
@@ -406,7 +406,7 @@ function checkBullet(el) {
 			}
 		}
 	} else {
-		if((rect.top <= cometImg.offsetTop + 280 && rect.top + 30 > cometImg.offsetTop + 220) && (rect.left > cometImg.offsetLeft + 220 && rect.left < cometImg.offsetLeft + 300)) {
+		if((rect.top <= cometImg.offsetTop + 300 && rect.top + 30 > cometImg.offsetTop + 220) && (rect.left > cometImg.offsetLeft + 220 && rect.left < cometImg.offsetLeft + 300)) {
 			if(!cometDeath) {
 				clearInterval(cometMovement)
 				cometImg.src = 'img/explosion.gif';
@@ -534,7 +534,7 @@ function moveComet() {
 				cometTop += 1;
 				cometImg.style.left = cometLeft + 'px';
 				cometImg.style.top = cometTop + 'px';
-				if((cometImg.offsetTop + 280 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft + 220 < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 300 > rocketImg.offsetLeft + 30)) {
+				if((cometImg.offsetTop + 300 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft + 220 < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 300 > rocketImg.offsetLeft + 30)) {
 					cometImg.classList.add('hide');
 					death();
 				}
@@ -555,7 +555,7 @@ function moveComet() {
 				cometTop += 1.5;
 				cometImg.style.left = cometLeft + 'px';
 				cometImg.style.top = cometTop + 'px';
-				if((cometImg.offsetTop + 280 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft + 220 < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 300 > rocketImg.offsetLeft + 30)) {
+				if((cometImg.offsetTop + 300 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft + 220 < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 300 > rocketImg.offsetLeft + 30)) {
 					cometImg.classList.add('hide');
 					death();
 				}
@@ -576,7 +576,7 @@ function moveComet() {
 				cometTop += 1.5;
 				cometImg.style.left = cometLeft + 'px';
 				cometImg.style.top = cometTop + 'px';
-				if((cometImg.offsetTop + 280 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft + 220 < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 300 > rocketImg.offsetLeft + 30)) {
+				if((cometImg.offsetTop + 300 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft + 220 < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 300 > rocketImg.offsetLeft + 30)) {
 					cometImg.classList.add('hide');
 					death();
 				}
@@ -597,7 +597,7 @@ function moveComet() {
 				cometTop += 1;
 				cometImg.style.left = cometLeft + 'px';
 				cometImg.style.top = cometTop + 'px';
-				if((cometImg.offsetTop + 280 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 80 > rocketImg.offsetLeft + 30)) {
+				if((cometImg.offsetTop + 300 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 80 > rocketImg.offsetLeft + 30)) {
 					cometImg.classList.add('hide');
 					death();
 				}
@@ -618,7 +618,7 @@ function moveComet() {
 				cometTop += 1.3;
 				cometImg.style.left = cometLeft + 'px';
 				cometImg.style.top = cometTop + 'px';
-				if((cometImg.offsetTop + 280 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 80 > rocketImg.offsetLeft + 30)) {
+				if((cometImg.offsetTop + 300 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 80 > rocketImg.offsetLeft + 30)) {
 					cometImg.classList.add('hide');
 					death();
 				}
@@ -639,7 +639,7 @@ function moveComet() {
 				cometTop += 1.5;
 				cometImg.style.left = cometLeft + 'px';
 				cometImg.style.top = cometTop + 'px';
-				if((cometImg.offsetTop + 280 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 80 > rocketImg.offsetLeft + 30)) {
+				if((cometImg.offsetTop + 300 >= rocketImg.offsetTop && cometImg.offsetTop + 220 < rocketImg.offsetTop + 80) && (cometImg.offsetLeft < rocketImg.offsetLeft + 70 && cometImg.offsetLeft + 80 > rocketImg.offsetLeft + 30)) {
 					cometImg.classList.add('hide');
 					death();
 				}
