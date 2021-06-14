@@ -400,7 +400,7 @@ function checkBullet(el) {
 					cometTop = -300;
 					cometImg.style.left = cometLeft + 'px';
 					cometImg.style.top = cometTop + 'px';
-					cometImg.src = 'img/comet1.png';
+					cometImg.src = 'img/comet.gif';
 					cometDeath = false;
 				}, 2000);
 			}
@@ -416,7 +416,7 @@ function checkBullet(el) {
 					cometTop = -300;
 					cometImg.style.left = cometLeft + 'px';
 					cometImg.style.top = cometTop + 'px';
-					cometImg.src = 'img/comet1.png';
+					cometImg.src = 'img/comet.gif';
 					cometDeath = false;
 				}, 2000);
 			}
