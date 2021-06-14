@@ -68,7 +68,6 @@ function moveTargets(target) {
 
 	var targetPos = Math.floor(Math.random() * (-100 + 1500 + 1) - 1500);
 	targetImg[target].style.top = targetPos + 'px';
-	
 	var spaceX = 20 - ((targetImg[0].width / screen.width) * 100);
 	targetImg[0].style.left = Math.floor(Math.random() * spaceX) + '%';
 	targetImg[1].style.left = 20 + Math.floor(Math.random() * spaceX) + '%';
@@ -692,7 +691,7 @@ function moveCoin() {
 			}
 		}, 1)
 		moveCoin()
-	}, 5000);
+	}, randocoinTime * 1000);
 }
 
 
