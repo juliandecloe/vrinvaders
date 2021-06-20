@@ -68,7 +68,7 @@ function moveTargets(target) {
 
 	var targetPos = Math.floor(Math.random() * (-100 + 1500 + 1) - 1500);
 	targetImg[target].style.top = targetPos + 'px';
-	var spaceX = 20 - ((targetImg[0].width / screen.width) * 100);
+	var spaceX = 20 - ((targetImg[0].width / window.innerWidth) * 100);
 	targetImg[0].style.left = Math.floor(Math.random() * spaceX) + '%';
 	targetImg[1].style.left = 20 + Math.floor(Math.random() * spaceX) + '%';
 	targetImg[2].style.left = 40 + Math.floor(Math.random() * spaceX) + '%';
@@ -299,8 +299,8 @@ function moveRight() {
 			rocketPos = rocketPos + 0.5;
 			rocketImg.style.left = rocketPos + "%";
 		}
-		if (rocketImg.offsetLeft >= screen.width - rocketImg.width) {
-			rocketPos = 100 - ((rocketImg.width / screen.width) * 100);
+		if ((rocketImg.offsetLeft / window.innerWidth) * 100 >= 100 - ((rocketImg.width / window.innerWidth) * 100)) {
+			rocketPos = 100 - ((rocketImg.width / window.innerWidth) * 100) + 1.2;
 			rocketImg.style.left = rocketPos + '%';
 		}
 		moveRight();
@@ -316,8 +316,16 @@ function endmovingRocket(event) {
 	}
 }
 
+function resizeWindow() {
+  if ((rocketImg.offsetLeft / window.innerWidth) * 100 >= 100 - ((rocketImg.width / window.innerWidth) * 100)) {
+  	rocketPos = 100 - ((rocketImg.width / window.innerWidth) * 100) + 1.2;
+  	rocketImg.style.left = rocketPos + '%';
+  }
+}
+
 document.addEventListener('keydown', startmovingRocket);
 document.addEventListener('keyup', endmovingRocket);
+window.addEventListener('resize', resizeWindow);
 
 
 //============ BULLET ============//
@@ -391,7 +399,6 @@ function checkBullet(el) {
 	if(cometImg.classList.contains('cometflip')) {
 		if((rect.top <= cometImg.offsetTop + 300 && rect.top + 30 > cometImg.offsetTop + 220) && (rect.left > cometImg.offsetLeft && rect.left < cometImg.offsetLeft + 80)) {
 			if(!cometDeath) {
-				console.log('target dies')
 				clearInterval(cometMovement)
 				cometImg.src = 'img/explosion.gif';
 				cometDeath = true;
@@ -538,7 +545,7 @@ function moveComet() {
 					cometImg.classList.add('hide');
 					death();
 				}
-				if(cometImg.offsetTop > window.screen.height || cometImg.offsetLeft > screen.width) {
+				if(cometImg.offsetTop > window.screen.height || cometImg.offsetLeft > window.innerWidth) {
 					clearInterval(cometMovement)
 					cometLeft = -500;
 					cometTop = -500;
@@ -559,7 +566,7 @@ function moveComet() {
 					cometImg.classList.add('hide');
 					death();
 				}
-				if(cometImg.offsetTop > window.screen.height || cometImg.offsetLeft > screen.width) {
+				if(cometImg.offsetTop > window.screen.height || cometImg.offsetLeft > window.innerWidth) {
 					clearInterval(cometMovement)
 					cometLeft = -300;
 					cometTop = -300;
@@ -580,7 +587,7 @@ function moveComet() {
 					cometImg.classList.add('hide');
 					death();
 				}
-				if(cometImg.offsetTop > window.screen.height || cometImg.offsetLeft > screen.width) {
+				if(cometImg.offsetTop > window.screen.height || cometImg.offsetLeft > window.innerWidth) {
 					clearInterval(cometMovement)
 					cometLeft = -300;
 					cometTop = -300;
@@ -591,7 +598,7 @@ function moveComet() {
 		} else if(randoComet == 4) {
 			cometImg.classList.add('cometflip');
 			cometTop = -500;
-			cometLeft = screen.width + 500;
+			cometLeft = window.innerWidth + 500;
 			cometMovement = setInterval(function() {
 				cometLeft -= 1.4;
 				cometTop += 1;
@@ -612,7 +619,7 @@ function moveComet() {
 		} else if(randoComet == 5) {
 			cometImg.classList.add('cometflip');
 			cometTop = -500;
-			cometLeft = screen.width + 200;
+			cometLeft = window.innerWidth + 200;
 			cometMovement = setInterval(function() {
 				cometLeft -= 1.1;
 				cometTop += 1.3;
@@ -633,7 +640,7 @@ function moveComet() {
 		} else if(randoComet == 6) {
 			cometImg.classList.add('cometflip');
 			cometTop = -300;
-			cometLeft = screen.width - 500;
+			cometLeft = window.innerWidth - 500;
 			cometMovement = setInterval(function() {
 				cometLeft -= 1;
 				cometTop += 1.5;
@@ -665,7 +672,7 @@ function moveCoin() {
 	coinInt = setTimeout(function() {
 		clearInterval(coinMovement);
 		coinTop = -200;
-		var coinLeft = Math.floor(Math.random() * 100 - ((coinImg.width / screen.width) * 100));
+		var coinLeft = Math.floor(Math.random() * 100 - ((coinImg.width / window.innerWidth) * 100));
 		coinImg.style.left = coinLeft + '%';
 		coinMovement = setInterval(function() {
 			coinTop += 1;
@@ -674,7 +681,7 @@ function moveCoin() {
 				if(!deathChecker) {
 					clearInterval(coinMovement)
 					coinText.style.top = coinImg.offsetTop + 'px';
-					coinText.style.left = ((coinImg.offsetLeft / screen.width) * 100) + '%';
+					coinText.style.left = ((coinImg.offsetLeft / window.innerWidth) * 100) + '%';
 					coinText.classList.remove('hide');
 					coinText.classList.add('cointextmove');
 					coinTop = -200;
