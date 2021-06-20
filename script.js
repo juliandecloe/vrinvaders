@@ -288,6 +288,10 @@ function moveLeft() {
 		if (rocketImg.offsetLeft <= -20) {
 			rocketPos = -1;
 			rocketImg.style.left = rocketPos + '%';
+			clearTimeout(rocketLeft);
+		}
+		if(rocketLeft > 1) {
+			clearTimeout(rocketLeft);
 		}
 		moveLeft();
 	}, 10)
@@ -300,8 +304,12 @@ function moveRight() {
 			rocketImg.style.left = rocketPos + "%";
 		}
 		if ((rocketImg.offsetLeft / window.innerWidth) * 100 >= 100 - ((rocketImg.width / window.innerWidth) * 100)) {
-			rocketPos = 100 - ((rocketImg.width / window.innerWidth) * 100) + 1.2;
+			rocketPos = 100 - ((rocketImg.width / window.innerWidth) * 100) + 1;
 			rocketImg.style.left = rocketPos + '%';
+			clearTimeout(rocketRight);
+		}
+		if(rocketRight > 1) {
+			clearTimeout(rocketRight);
 		}
 		moveRight();
 	}, 10)
