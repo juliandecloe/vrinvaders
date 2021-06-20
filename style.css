@@ -31,7 +31,24 @@ body {
 .scoreparts p {
 	font-size: 25px;
 	color: white;
+}
 
+@media(max-width: 620px) {
+	.scoreparts {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		padding: 5%;
+		height: 10%;
+		width: 100%;
+	}
+	.scoreparts p {
+		margin: 0;	
+	}
+
+	.start {
+		margin-top: 25%;
+	}
 }
 
 .fade {
@@ -49,7 +66,7 @@ body {
 
 .start {
 	text-align: center;
-	margin-top: 15%;
+	margin-top: 250px;
 }
 
 .start h3 {

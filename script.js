@@ -366,6 +366,11 @@ function bulletInterval() {
 	if(bulletImg.length >= 10) {
 		checkBullet(9);
 	}
+	if (document.hidden) {
+	    clearTimeout(shootRepeat);
+	    clearTimeout(rocketRight);
+	    clearTimeout(rocketLeft);
+	}
 }
 
 function startShooting(event) {
