@@ -398,7 +398,10 @@ function shootBullet() {
 	document.body.appendChild(newBullet);
 	newBullet.style.left = rocketImg.offsetLeft + 48 + 'px'; 
 	newBullet.classList.add('bullet'); 
-	bulletImg = document.querySelectorAll('.bullet');		
+	bulletImg = document.querySelectorAll('.bullet');
+	if(shootRepeat > 1) {
+		clearTimeout(shootRepeat);
+	}		
 	shootRepeat = setTimeout(function() {
 		shootBullet();
 	}, 250);
