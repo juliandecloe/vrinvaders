@@ -1,6 +1,8 @@
 # Procesverslag
 **Auteur:** Julian de Cloe
 
+## Intro
+Welkom bij mijn VR Invaders project! Een vanilla javascript Space Invaders game voor www.vrcafehaarlem.nl. In dit spel is het de bedoeling dat je zo lang mogelijk overleeft door met een raketje sterren te ontwijken en cometen te schieten. Verzamel extra punten door coins te collecten onderweg. Ik ben beginnend frontent designer die zijn focus probeert te verdelen onder design en development. Dit is een van de eerste serieuze projecten waar ik aan begonnen ben en ook zal onderhouden. 
 
 ## Gebruikte bronnen
 1. https://developer.mozilla.org/en-US/
