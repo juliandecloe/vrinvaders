@@ -4,7 +4,7 @@ windowSize();
 
 function windowSize() {
 	if (window.innerWidth < 1025) {
-	    death();
+	    startButton.classList.add('fade');
 	    mainTitle.textContent = 'Dit spel is alleen speelbaar op desktop';
 	}
 }
