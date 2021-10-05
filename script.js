@@ -1,15 +1,4 @@
-//============ SCREEN SIZE ===========//
 
-windowSize();
-
-function windowSize() {
-	if (window.innerWidth < 1025) {
-	    startButton.classList.add('fade');
-	    mainTitle.textContent = 'Dit spel is alleen speelbaar op desktop';
-	}
-}
-
-window.addEventListener('resize', windowSize);
 
 //============ START GAME ============//
 
