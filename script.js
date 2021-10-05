@@ -1,4 +1,15 @@
+//============ SCREEN SIZE ===========//
 
+windowSize();
+
+function windowSize() {
+	if (window.innerWidth < 1025) {
+	    death();
+	    mainTitle.textContent = 'Dit spel is alleen speelbaar op desktop';
+	}
+}
+
+window.addEventListener('resize', windowSize);
 
 //============ START GAME ============//
 
@@ -716,7 +727,6 @@ function moveCoin() {
 		moveCoin()
 	}, randocoinTime * 1000);
 }
-
 
 
 
