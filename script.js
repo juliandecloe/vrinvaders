@@ -222,7 +222,7 @@ function moveTargets(target) {
 
 function death() {
 	deathChecker = true;
-	rocketImg.src = 'img/explosion.gif';
+	rocketImg.src = 'https://www.vrcafehaarlem.nl/wp-content/uploads/2021/10/explosion.gif';
 	setTimeout(function() {
 		targetPos = Math.floor(Math.random() * (-100 + 1500 + 1) - 1500);
 		for(var i = 0; i < targetImg.length; i++) {
@@ -237,7 +237,7 @@ function death() {
 		clearInterval(increaseSpeed)
 		timerSpeed = 10;
 		targetSpeed = 1;
-		rocketImg.src = "img/rocket.png";
+		rocketImg.src = "https://www.vrcafehaarlem.nl/wp-content/uploads/2021/10/rocket.png";
 		rocketPos = 47;
 		rocketImg.style.left = rocketPos + '%';
 		mainTitle.classList.remove('fade');
@@ -394,7 +394,7 @@ function startShooting(event) {
 
 function shootBullet() {
 	var newBullet = document.createElement('img');
-	newBullet.src = 'img/bullet.png';
+	newBullet.src = 'https://www.vrcafehaarlem.nl/wp-content/uploads/2021/10/bullet.png';
 	document.body.appendChild(newBullet);
 	newBullet.style.left = rocketImg.offsetLeft + 48 + 'px'; 
 	newBullet.classList.add('bullet'); 
@@ -416,14 +416,14 @@ function checkBullet(el) {
 		if((rect.top <= cometImg.offsetTop + 300 && rect.top + 30 > cometImg.offsetTop + 220) && (rect.left > cometImg.offsetLeft && rect.left < cometImg.offsetLeft + 80)) {
 			if(!cometDeath) {
 				clearInterval(cometMovement)
-				cometImg.src = 'img/explosion.gif';
+				cometImg.src = 'https://www.vrcafehaarlem.nl/wp-content/uploads/2021/10/explosion.gif';
 				cometDeath = true;
 				setTimeout(function() {
 					cometLeft = -300;
 					cometTop = -300;
 					cometImg.style.left = cometLeft + 'px';
 					cometImg.style.top = cometTop + 'px';
-					cometImg.src = 'img/comet.gif';
+					cometImg.src = 'https://www.vrcafehaarlem.nl/wp-content/uploads/2021/10/comet.gif';
 					cometDeath = false;
 				}, 2000);
 			}
@@ -432,14 +432,14 @@ function checkBullet(el) {
 		if((rect.top <= cometImg.offsetTop + 300 && rect.top + 30 > cometImg.offsetTop + 220) && (rect.left > cometImg.offsetLeft + 220 && rect.left < cometImg.offsetLeft + 300)) {
 			if(!cometDeath) {
 				clearInterval(cometMovement)
-				cometImg.src = 'img/explosion.gif';
+				cometImg.src = 'https://www.vrcafehaarlem.nl/wp-content/uploads/2021/10/explosion.gif';
 				cometDeath = true;
 				setTimeout(function() {
 					cometLeft = -300;
 					cometTop = -300;
 					cometImg.style.left = cometLeft + 'px';
 					cometImg.style.top = cometTop + 'px';
-					cometImg.src = 'img/comet.gif';
+					cometImg.src = 'https://www.vrcafehaarlem.nl/wp-content/uploads/2021/10/comet.gif';
 					cometDeath = false;
 				}, 2000);
 			}
